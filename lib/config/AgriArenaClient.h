@@ -2,17 +2,29 @@
 #define AGRIARENACLIENT_H
 
 #include <ArduinoJson.h>
-#include <WiFiClientSecure.h>
 #include <HTTPClient.h>
 
-class AgriArenaClient {
-    WiFiClientSecure client;
-    HTTPClient http;
-public:
-    // AgriArenaClient();
+#ifdef USE_HTTPS
+#include <WiFiClientSecure.h>
+#else
+#include <WiFi.h>
+#endif
 
+
+class AgriArenaClient {
+#ifdef USE_HTTPS
+    WiFiClientSecure client;
+#else
+    WiFiClient client;
+#endif
+    HTTPClient http;
+    const char* ntpServer = "pool.ntp.org";
+    // TaskHandle_t timeTaskHandle = NULL;
+
+public:
     void config(String, const char *);
-    void send(DynamicJsonDocument, const uint64_t&, IPAddress);
+    void send(DynamicJsonDocument, const uint64_t&);
+    static void timeTask(void* pvParameters);
 };
 
 #endif

@@ -1,10 +1,14 @@
-
-#include <WiFiClientSecure.h>
 #include "WifiConfiguration.h"
+
+#ifdef USE_HTTPS
+#include <WiFiClientSecure.h>
+#else
+#include <WiFi.h>
+#endif
+
 
 
 WifiConfiguration::WifiConfiguration() : ssid(""), password(""){}
-WifiConfiguration::WifiConfiguration(std::pair<String, String> &wifi) : ssid(wifi.first), password(wifi.second){}
 WifiConfiguration::WifiConfiguration(String ssid, String password) : ssid(ssid), password(password){}
 
 bool WifiConfiguration::isEmpty() {
@@ -31,16 +35,16 @@ bool WifiConfiguration::connect(const uint8_t& LED_PIN) {
 }
 
 IPAddress WifiConfiguration::reconnect(const uint8_t& LED_PIN) {
-    this->connect(LED_PIN);
-    return this->getIP();
+    connect(LED_PIN);
+    return getIP();
 }
 
 bool WifiConfiguration::config(const uint8_t& LED_PIN) {
-    if (this->isEmpty()){
+    if (isEmpty()){
         Serial.println("Wifi credential is empty");
         return false;
     }
-    if (!this->connect(LED_PIN)) {
+    if (!connect(LED_PIN)) {
         Serial.println("Failed to connect to WiFi");
         return false;
     }

@@ -1,14 +1,18 @@
 #ifndef WIFICONFIGURATION_H
 #define WIFICONFIGURATION_H
 
+#ifdef USE_HTTPS
 #include <WiFiClientSecure.h>
+#else
+#include <WiFi.h>
+#endif
+
 
 class WifiConfiguration {
     String ssid;
     String password;
 public:
     WifiConfiguration();
-    WifiConfiguration(std::pair<String, String>&);
     WifiConfiguration(String ssid, String password);
 
     bool isEmpty() ;

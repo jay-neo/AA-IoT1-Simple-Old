@@ -1,10 +1,12 @@
 #include "WifiConfiguration.h"
 
-#ifdef USE_HTTPS
 #include <WiFiClientSecure.h>
-#else
-#include <WiFi.h>
-#endif
+
+// #ifdef USE_HTTPS
+// #include <WiFiClientSecure.h>
+// #else
+// #include <WiFi.h>
+// #endif
 
 
 

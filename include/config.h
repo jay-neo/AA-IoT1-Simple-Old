@@ -1,5 +1,3 @@
-#include <Arduino.h>
-
 #include "AgriArenaClient.h"
 #include "WifiConfiguration.h"
 #include "Sensors.h"

@@ -17,7 +17,7 @@ unsigned long getTime() {
 void AgriArenaClient::config(String URL, const char *certificate) {
     // this->client.setCACert(certificate);
 
-    http.begin(client, URL);
+    http.begin(this->client, URL);
     http.addHeader("Content-Type", "application/json");
 }
 
@@ -31,6 +31,7 @@ void AgriArenaClient::send(DynamicJsonDocument data, const uint64_t &chipId, IPA
 
     String jsonString;
     serializeJson(data, jsonString);
+    Serial.println(jsonString);
 
 
     int httpResponseCode = this->http.POST(jsonString);

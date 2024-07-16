@@ -7,9 +7,10 @@
 
 class Sensors {
     DHT dht;
+    uint8_t soil_moisture_pin;
     std::map<String, float> res;
 public:
-    Sensors(const uint8_t, const uint8_t);
+    Sensors(const uint8_t, const uint8_t, const uint8_t);
     // ~Sensors();
 
     void read();

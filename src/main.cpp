@@ -1,22 +1,21 @@
 #include "config.h"
-// #include "esp_sleep.h"
-// #include "esp_system.h"
 
-const char* ntpServer = "pool.ntp.org";
+// const char* ntpServer = "pool.ntp.org";
 const uint64_t chipId = ESP.getEfuseMac();
 uint8_t retries = 0;
 
 
 WifiConfiguration Wifi(SSID, PASSWORD);
 AgriArenaClient Client;
-Sensors Sensor(DHT_PIN, DHT_TYPE);
+Sensors Sensor(DHT_PIN, DHT_TYPE, SOIL_MOISTURE_PIN);
 
 
 void setup() {
     Serial.begin(115200);
     // configureLED(LED);
     // pinMode(SWITCH, INPUT);
-    configTime(0, 0, ntpServer);
+    
+    // configTime(0, 0, ntpServer);
 
     Serial.println("Starting...");
     // setColor(10, 0, 0); setColor(0, 10, 0); setColor(0, 0, 10);

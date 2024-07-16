@@ -24,7 +24,8 @@ class AgriArenaClient {
 public:
     void config(String, const char *);
     void send(DynamicJsonDocument, const uint64_t&);
-    static void timeTask(void* pvParameters);
+    String getTime() const;
+    // static void timeTask(void* pvParameters);
 };
 
 #endif

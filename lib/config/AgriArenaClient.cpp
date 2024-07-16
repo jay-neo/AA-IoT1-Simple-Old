@@ -2,14 +2,14 @@
 #include "AgriArenaClient.h"
 #include "time.h"
 
-String getTime() {
+String AgriArenaClient::getTime() const {
   struct tm timeinfo;
   if (!getLocalTime(&timeinfo)) {
     return "Unknown";
   }
-  Serial.println(&timeinfo, "%A, %B %d %Y %H:%M:%S");
+  // Serial.println(&timeinfo, "%A, %B %d %Y %H:%M:%S");
   char buffer[64];
-  strftime(buffer, sizeof(buffer), "%A, %B %d %Y %H:%M:%S", &timeinfo);
+  strftime(buffer, sizeof(buffer), "%H:%M:%S - %d %B, %Y ", &timeinfo);
   return String(buffer);
 }
 

@@ -1,4 +1,4 @@
-#include "config.h"
+#include "config.hpp"
 
 // const char* ntpServer = "pool.ntp.org";
 const uint64_t chipId = ESP.getEfuseMac();
@@ -14,7 +14,7 @@ void setup() {
     Serial.begin(115200);
     // configureLED(LED);
     // pinMode(SWITCH, INPUT);
-    
+
     // configTime(0, 0, ntpServer);
 
     Serial.println("Starting...");

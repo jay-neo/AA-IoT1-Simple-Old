@@ -7,9 +7,9 @@ String AgriArenaClient::getTime() const {
   if (!getLocalTime(&timeinfo)) {
     return "Unknown";
   }
-  // Serial.println(&timeinfo, "%A, %B %d %Y %H:%M:%S");
   char buffer[64];
-  strftime(buffer, sizeof(buffer), "%H:%M:%S - %d %B, %Y ", &timeinfo);
+  strftime(buffer, sizeof(buffer), "%H:%M:%S - %d %B, %Y", &timeinfo);
+//   strftime(buffer, sizeof(buffer), "%A, %B %d %Y %H:%M:%S", &timeinfo);
   return String(buffer);
 }
 

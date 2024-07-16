@@ -1,3 +1,3 @@
-# ESP32 for DHT Sensor
+# ESP32 for DHT + Soil Moisture Sensors
 
-Go to `include/config.h` file and change things with your requirements.
+Go to `include/config.hpp` file and change things with your requirements.

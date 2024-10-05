@@ -10,7 +10,6 @@
 #include <WiFi.h>
 #endif
 
-
 class AgriArenaClient {
 #ifdef USE_HTTPS
     WiFiClientSecure client;
@@ -18,13 +17,13 @@ class AgriArenaClient {
     WiFiClient client;
 #endif
     HTTPClient http;
-    const char* ntpServer = "pool.ntp.org";
+    const char *ntpServer = "pool.ntp.org";
     // TaskHandle_t timeTaskHandle = NULL;
 
-public:
+   public:
+    String getTime();
     void config(String, const char *);
-    void send(DynamicJsonDocument, const uint64_t&);
-    String getTime() const;
+    void send(DynamicJsonDocument, const uint64_t &);
     // static void timeTask(void* pvParameters);
 };
 

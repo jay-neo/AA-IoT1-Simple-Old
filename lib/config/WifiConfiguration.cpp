@@ -8,20 +8,16 @@
 // #include <WiFi.h>
 // #endif
 
+WifiConfiguration::WifiConfiguration() : ssid(""), password("") {}
+WifiConfiguration::WifiConfiguration(String ssid, String password) : ssid(ssid), password(password) {}
 
-
-WifiConfiguration::WifiConfiguration() : ssid(""), password(""){}
-WifiConfiguration::WifiConfiguration(String ssid, String password) : ssid(ssid), password(password){}
-
-bool WifiConfiguration::isEmpty() {
-    return ssid == "" || password == "";
-}
+bool WifiConfiguration::isEmpty() { return ssid == "" || password == ""; }
 
 bool WifiConfiguration::connect(const uint8_t& LED_PIN) {
     int retries = 0;
     WiFi.mode(WIFI_STA);
     WiFi.begin(ssid.c_str(), password.c_str());
-    while (WiFi.status() != WL_CONNECTED  && retries < 30) {
+    while(WiFi.status() != WL_CONNECTED && retries < 30) {
         digitalWrite(LED_PIN, HIGH);
         delay(50);
         digitalWrite(LED_PIN, LOW);
@@ -42,11 +38,11 @@ IPAddress WifiConfiguration::reconnect(const uint8_t& LED_PIN) {
 }
 
 bool WifiConfiguration::config(const uint8_t& LED_PIN) {
-    if (isEmpty()){
+    if(isEmpty()) {
         Serial.println("Wifi credential is empty");
         return false;
     }
-    if (!connect(LED_PIN)) {
+    if(!connect(LED_PIN)) {
         Serial.println("Failed to connect to WiFi");
         return false;
     }
@@ -54,13 +50,11 @@ bool WifiConfiguration::config(const uint8_t& LED_PIN) {
     return true;
 }
 
-bool WifiConfiguration::isAlive(const uint8_t& LED_PIN) {
-    if (WiFi.status() != WL_CONNECTED) {
+bool WifiConfiguration::isAlive() {
+    if(WiFi.status() != WL_CONNECTED) {
         return false;
     }
     return true;
 }
 
-IPAddress WifiConfiguration::getIP() {
-    return WiFi.localIP();
-}
+IPAddress WifiConfiguration::getIP() { return WiFi.localIP(); }

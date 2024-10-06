@@ -23,9 +23,9 @@ void configureLED(const uint8_t LED[]) {
     ledcAttachPin(LED[2], blueChannel);
 }
 
-void setColor(const uint32_t &red, const uint32_t &green, const uint32_t &blue) {
+void setColor(const uint32_t &red, const uint32_t &green, const uint32_t &blue, const uint8_t &duration = 1) {
     ledcWrite(redChannel, red);
     ledcWrite(greenChannel, green);
     ledcWrite(blueChannel, blue);
-    delay(10);
+    delay(10 * duration);
 }

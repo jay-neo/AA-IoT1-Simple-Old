@@ -16,14 +16,18 @@ class AgriArenaClient {
 #else
     WiFiClient client;
 #endif
+
     HTTPClient http;
-    const char *ntpServer = "pool.ntp.org";
+    uint64_t deviceId;
+    const char *ntpServer;
     // TaskHandle_t timeTaskHandle = NULL;
 
    public:
+    AgriArenaClient();
+
     String getTime();
-    void config(String, const char *);
-    void send(DynamicJsonDocument, const uint64_t &);
+    void send(DynamicJsonDocument &data);
+    bool config(const String &URL, const char *certificate);
     // static void timeTask(void* pvParameters);
 };
 

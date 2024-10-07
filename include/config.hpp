@@ -1,23 +1,24 @@
-#include "AgriArenaClient.h"
-#include "RGB_LED.cpp"
-#include "Sensors.h"
-#include "WifiConfiguration.h"
+#include "AgriArenaClient.hpp"
+#include "Sensors.hpp"
+#include "WifiConfiguration.hpp"
 
 // For General Purpose
 const uint8_t SWITCH = 0;
-const uint8_t R = 15;
-const uint8_t LED[3] = {0, 0, 0};
+
+// For OLED Display
+const uint8_t DISPLAY_WIDTH = 0;
+const uint8_t DISPLAY_HEIGHT = 0;
+const uint8_t DISPLAY_ADDRESS = 0;
 
 // For DHT Sensor
-const uint8_t DHT_PIN = 0;
-const uint8_t DHT_TYPE = DHT11;
+const uint8_t DHT_PIN = 4;
+const uint8_t DHT_TYPE = DHT22;
 
 // For Moisture Sensor
-const uint8_t MOISTURE_PIN = 0;
+const uint8_t MOISTURE_PIN = 12;
 
 // For PH Sensor
-const uint8_t PH_POS = 0;
-const uint8_t PH_NEG = 0;
+const uint8_t PH_PIN = 0;
 
 // For NPK Sensor
 const uint8_t NPK_RE = 0;

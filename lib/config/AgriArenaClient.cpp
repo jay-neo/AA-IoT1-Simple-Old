@@ -54,7 +54,7 @@ bool AgriArenaClient::config(const String &URL, const char *certificate) {
     Serial.println(this->ntpServer);
 }
 
-void AgriArenaClient::send(DynamicJsonDocument &data) {
+void AgriArenaClient::send(DynamicJsonDocument data) {
     data["iot"] = this->deviceId;
     data["timestamp"] = this->getTime();
 

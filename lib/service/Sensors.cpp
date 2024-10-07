@@ -28,7 +28,8 @@ void Sensors::set_dht(const uint8_t _pin, const uint8_t _type) {
     this->dht = new DHT(this->dht_pin, this->dht_type);
     this->dht->begin();
 }
-void Sensors::set_npk(const uint8_t _RE, const uint8_t _DE, const uint8_t code[]) {}
+void Sensors::set_npk(const uint8_t _RE, const uint8_t _DE, const uint8_t _RX, const uint8_t _TX,
+                      const uint8_t code[]) {}
 
 // Private Getter
 float Sensors::get_ph() {}
@@ -79,7 +80,7 @@ void Sensors::read_all() {
 }
 
 // Public Getter
-DynamicJsonDocument &Sensors::get() {
+DynamicJsonDocument Sensors::get() {
     DynamicJsonDocument doc(JSON_OBJECT_SIZE(res.size() + 2));
     for(const auto &kv : res) {
         doc[kv.first.c_str()] = kv.second;

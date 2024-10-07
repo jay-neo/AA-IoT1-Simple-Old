@@ -19,6 +19,9 @@ void setup() {
     if(MOISTURE_PIN) {
         sensor.set_moisture_pin(MOISTURE_PIN);
     }
+    if(NPK_RE && NPK_DE && NPK_RX && NPK_TX) {
+        sensor.set_npk(NPK_RE, NPK_DE, NPK_RX, NPK_TX, NPK_CODE);
+    }
 
     // setColor(10, 0, 0); setColor(0, 10, 0); setColor(0, 0, 10);
 

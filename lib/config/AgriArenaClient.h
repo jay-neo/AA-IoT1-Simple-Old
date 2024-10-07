@@ -26,7 +26,7 @@ class AgriArenaClient {
     AgriArenaClient();
 
     String getTime();
-    void send(DynamicJsonDocument &data);
+    void send(DynamicJsonDocument data);
     bool config(const String &URL, const char *certificate);
     // static void timeTask(void* pvParameters);
 };

@@ -29,13 +29,14 @@ class Sensors {
     ~Sensors();
 
     // Public Getter
-    DynamicJsonDocument &get();
+    DynamicJsonDocument get();
 
     // Pubic Setter
     void set_ph_pin(const uint8_t _pin);
     void set_moisture_pin(const uint8_t _pin);
     void set_dht(const uint8_t _pin, const uint8_t _type);
-    void set_npk(const uint8_t _RE, const uint8_t _DE, const uint8_t code[]);
+    void set_npk(const uint8_t _RE, const uint8_t _DE, const uint8_t _RX, const uint8_t _TX,
+                 const uint8_t code[]);
 
     // Public Utilities
     void read_all();

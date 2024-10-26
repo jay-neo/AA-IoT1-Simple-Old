@@ -1,5 +1,4 @@
 #include "AgriArenaClient.hpp"
-#include "Sensors.hpp"
 #include "WifiConfiguration.hpp"
 
 // For General Purpose
@@ -26,6 +25,7 @@ const uint8_t NPK_DE = 0;
 const uint8_t NPK_RX = 0;
 const uint8_t NPK_TX = 0;
 const uint8_t NPK_CODE[] = {};
+const uint8_t NPK_BAUD_RATE = 0;
 
 // For Server Endpoint
 const String ENDPOINT = "http://localhost:3000/api/iot";

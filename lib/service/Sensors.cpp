@@ -3,8 +3,6 @@
 #include <ArduinoJson.h>
 #include <DHT.h>
 
-#include <algorithm>
-
 // Public Constructor
 Sensors::Sensors() : dht(nullptr) {}
 
@@ -31,11 +29,14 @@ void Sensors::set_dht(const uint8_t _pin, const uint8_t _type) {
     this->dht->begin();
 }
 void Sensors::set_npk(const uint8_t _RE, const uint8_t _DE, const uint8_t _RX, const uint8_t _TX,
-                      const uint8_t code[]) {
+                      const uint8_t code[], const uint8_t speed) {
     this->RE_npk_pin = _RE;
     this->DE_npk_pin = _DE;
     this->npk_sensor = new SoftwareSerial(_RX, _TX);
-    std::copy(this->npk_sensor_code, this->npk_sensor_code + sizeof(code) / sizeof(code[0]), code);
+    this->npk_sensor->begin(speed);
+    for(size_t i = 0; i < 8; ++i) {
+        this->npk_sensor_code[i] = code[i];
+    }
     pinMode(_RE, OUTPUT);
     pinMode(_DE, OUTPUT);
     delay(2000);

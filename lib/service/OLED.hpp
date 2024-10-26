@@ -9,7 +9,7 @@ class OLED {
     Adafruit_SSD1306 display;
 
    public:
-    OLED(const int8_t &width, const int8_t &height, const uint8_t &screen_address);
+    OLED(const uint8_t &width, const uint8_t &height, const uint8_t &screen_address);
     void wellcome();
     void message(const String &message);
     void error(const String &error);

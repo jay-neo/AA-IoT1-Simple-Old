@@ -20,7 +20,7 @@ void setup() {
         client.set_ph_pin(PH_PIN);
     }
     if(NPK_RE && NPK_DE && NPK_RX && NPK_TX) {
-        client.set_npk(NPK_RE, NPK_DE, NPK_RX, NPK_TX, NPK_CODE);
+        client.set_npk(NPK_RE, NPK_DE, NPK_RX, NPK_TX, NPK_CODE, NPK_BAUD_RATE);
     }
 
     if(!wifi.config()) {

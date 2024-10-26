@@ -1,6 +1,6 @@
 #include "WifiConfiguration.hpp"
 
-WifiConfiguration::WifiConfiguration(const String& ssid, const String& password, const uint8_t _LED_PIN = 2)
+WifiConfiguration::WifiConfiguration(const String& ssid, const String& password, const uint8_t _LED_PIN)
     : ssid(ssid), password(password), LED_PIN(_LED_PIN) {}
 
 bool WifiConfiguration::isEmpty() { return ssid == "" || password == ""; }

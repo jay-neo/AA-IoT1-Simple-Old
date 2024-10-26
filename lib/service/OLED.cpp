@@ -1,6 +1,6 @@
 #include "OLED.hpp"
 
-OLED::OLED(const int8_t &width, const int8_t &height, const uint8_t &display_address)
+OLED::OLED(const uint8_t &width, const uint8_t &height, const uint8_t &display_address)
     : display(Adafruit_SSD1306(width, height)) {
     if(!this->display.begin(SSD1306_SWITCHCAPVCC, display_address)) {
         Serial.println(F("SSD1306 allocation failed"));
